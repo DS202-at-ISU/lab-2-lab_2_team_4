@@ -16,7 +16,7 @@ Include your answers in this document (Rmd file). Make sure that it knits proper
 
 All submissions to the github repo will be automatically uploaded for grading once the due date is passed. Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
 
-1.  As a team, we found...
+1.  
 
 In this data set, there are 6835 observations of 16 variables. The variables present and their corresponding types are as shown below, each variable representing what they're titled.
 
@@ -29,6 +29,38 @@ library(classdata)
 summary(ames)
 ```
 
-2.  As a team, we found that the variable of special interest is Sale Price.
+2.  The variable of special interest is Sale Price.
 
-3.  
+3.  Sale Price is the main variable. The range of sale price is 0 - 20500000. The general pattern is that there is a large skew in the data, where the count of sales price concentrates in the left. Some oddities include the two outliers that lie to the right at a significantly higher sale price.
+
+```{r}
+library(ggplot2)
+
+ggplot(ames, aes(x = `Sale Price`)) +
+  geom_histogram(bins = 50, fill = "skyblue", color = "black") +
+  labs(title = "Distribution of Sale Price in Ames",
+       x = "Sale Price ($)",
+       y = "Count") +
+  theme_minimal()
+```
+
+4.  Sarah's work: Variable picked = Acres
+
+The range of Acres is 0.0000 - 12.0120.
+The distribution of the count of Acres is very similar to the distribution of the Sale Price, where is it skewed and concentrated to the left.
+
+The overall pattern of the scatterplot confirms the correlation between the Sale Price and Acres. They both concentrate towards lower prices and less acres. However, Acres does not appear to have as extreme oddities as compared to Sale Price.
+
+```{r} 
+library(ggplot2)
+
+#Acres Histogram
+ggplot(ames, aes(x = `Acres`)) + geom_histogram(bins = 50, fill = "skyblue", color = "black") + labs(title = "Distribution of Acres in Ames", x = "Acres", y = "Count") + theme_minimal()
+
+#Scatterplot
+ggplot(ames, aes(x = `Acres`, y = `Sale Price`)) +
+  geom_point(alpha = 0.5) +
+  labs(title = "Sale Price vs Acres") +
+  theme_minimal()
+
+```

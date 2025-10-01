@@ -24,14 +24,14 @@ In this data set, there are 6835 observations of 16 variables. The variables pre
 
 Additionally, for the numeric variables, below are the listed data ranges: Sale Price: 0 - 20500000, YearBuilt: 0 - 2022, Acres: 0.0000 - 12.0120, TotalLivingArea (sf): 0 - 6007, Bedrooms: 0 - 10, FinishedBsmtArea (sf): 10 - 6496, LotArea (sf): 0 - 523228
 
-```{r setup, include = FALSE}
+```{r}
 library(classdata)
 summary(ames)
 ```
 
 2.  The variable of special interest is Sale Price.
 
-3.  Sale Price is the main variable. The range of sale price is 0 - 20500000. The general pattern is that there is a large skew in the data, where the count of sales price concentrates in the left. Some oddities include the two outliers that lie to the right at a significantly higher sale price.
+3.  Sale Price is the main variable. The range of sale price is 0 - 20500000. The general pattern is that there is a large skew in the data, where the count of sales price concentrates to the left at 0. Some oddities include the two outliers that lie to the right at a significantly higher sale price.
 
 ```{r}
 library(ggplot2)
@@ -46,12 +46,11 @@ ggplot(ames, aes(x = `Sale Price`)) +
 
 4.  Sarah's work: Variable picked = Acres
 
-The range of Acres is 0.0000 - 12.0120.
-The distribution of the count of Acres is very similar to the distribution of the Sale Price, where is it skewed and concentrated to the left.
+The variable Acres ranges from 0.0000 to 12.0120. Its distribution is skewed, with most properties concentrated at lower acreages like 0, a pattern that mirrors the skew observed in Sale Price, which is similarly concentrated at lower values like 0.
 
-The overall pattern of the scatterplot confirms the correlation between the Sale Price and Acres. They both concentrate towards lower prices and less acres. However, Acres does not appear to have as extreme oddities as compared to Sale Price.
+The scatterplot shows that most properties cluster at the lower end of the graph, indicating they have both small acreage and low sale prices. This general trend is  skewed by several extreme outliers where the highest sale prices occur on properties with negligible lot sizes (near 0 acres). These implies that those values are driven may be driven by factors like location or building features, not the land area itself. Likewise, the two other outliers where plots of large acres have a ~0 sale price indicates that they may not be on the market to sell
 
-```{r} 
+```{r}
 library(ggplot2)
 
 #Acres Histogram

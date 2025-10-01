@@ -48,7 +48,7 @@ ggplot(ames, aes(x = `Sale Price`)) +
 
 The variable Acres ranges from 0.0000 to 12.0120. Its distribution is skewed, with most properties concentrated at lower acreages like 0, a pattern that mirrors the skew observed in Sale Price, which is similarly concentrated at lower values like 0.
 
-The scatterplot shows that most properties cluster at the lower end of the graph, indicating they have both small acreage and low sale prices. This general trend is  skewed by several extreme outliers where the highest sale prices occur on properties with negligible lot sizes (near 0 acres). These implies that those values are driven may be driven by factors like location or building features, not the land area itself. Likewise, the two other outliers where plots of large acres have a ~0 sale price indicates that they may not be on the market to sell
+The scatterplot shows that most properties cluster at the lower end of the graph, indicating they have both small acreage and low sale prices. This general trend is skewed by several extreme outliers where the highest sale prices occur on properties with negligible lot sizes (near 0 acres). These implies that those values are driven may be driven by factors like location or building features, not the land area itself. Likewise, the two other outliers where plots of large acres have a \~0 sale price indicates that they may not be on the market to sell
 
 ```{r}
 library(ggplot2)

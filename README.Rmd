@@ -4,16 +4,31 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit the README.Rmd file -->
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Lab report #1
 
-Follow the instructions posted at https://ds202-at-isu.github.io/labs.html for the lab assignment. The work is meant to be finished during the lab time, but you have time until Monday evening to polish things.
+Follow the instructions posted at <https://ds202-at-isu.github.io/labs.html> for the lab assignment. The work is meant to be finished during the lab time, but you have time until Monday evening to polish things.
 
-Include your answers in this document (Rmd file). Make sure that it knits properly (into the md file). Upload both the Rmd and the md file to your repository.  
+Include your answers in this document (Rmd file). Make sure that it knits properly (into the md file). Upload both the Rmd and the md file to your repository.
 
-All submissions to the github repo will be automatically uploaded for grading once the due date is passed.
-Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
+All submissions to the github repo will be automatically uploaded for grading once the due date is passed. Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
+
+1.  As a team, we found...
+
+In this data set, there are 6835 observations of 16 variables. The variables present and their corresponding types are as shown below, each variable representing what they're titled.
+
+![](Screenshot1.png)
+
+Additionally, for the numeric variables, below are the listed data ranges: Sale Price: 0 - 20500000, YearBuilt: 0 - 2022, Acres: 0.0000 - 12.0120, TotalLivingArea (sf): 0 - 6007, Bedrooms: 0 - 10, FinishedBsmtArea (sf): 10 - 6496, LotArea (sf): 0 - 523228
+
+```{r setup, include = FALSE}
+library(classdata)
+summary(ames)
+```
+
+2.  As a team, we found that the variable of special interest is Sale Price.
+
+3.  

@@ -187,3 +187,52 @@ ggplot(ames, aes(x = `TotalLivingArea (sf)`, y = `Sale Price`)) +
     ## (`geom_point()`).
 
 ![](README_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->
+
+Arina’s work: Variable picked = Bedrooms
+
+The variable Bedrooms ranges from 0 to 10, with most homes having 2 to 4
+bedrooms. The histogram shows that 3-bedroom homes are the most common,
+while very small or very large numbers of bedrooms are rare.
+
+The scatterplot of Sale Price vs Bedrooms does not show a strong
+positive relationship. In fact, the regression line is slightly
+downward, suggesting that the number of bedrooms alone does not drive
+price. Oddities include very expensive homes with only a few bedrooms,
+which indicates that other factors such as total living area or location
+are more important for determining sale price.
+
+``` r
+library(ggplot2)
+
+# Histogram of Bedrooms
+ggplot(ames, aes(x = Bedrooms)) +
+  geom_histogram(binwidth = 1, fill = "skyblue", color = "black") +
+  labs(title = "Distribution of Bedrooms in Ames",
+       x = "Number of Bedrooms",
+       y = "Count") +
+  theme_minimal()
+```
+
+    ## Warning: Removed 447 rows containing non-finite outside the scale range
+    ## (`stat_bin()`).
+
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+``` r
+# Scatter: Sale Price vs Bedrooms
+ggplot(ames, aes(x = Bedrooms, y = `Sale Price`)) +
+  geom_point(alpha = 0.4) +
+  geom_smooth(method = "lm", se = TRUE, color = "blue") +
+  labs(title = "Sale Price vs Bedrooms",
+       x = "Number of Bedrooms",
+       y = "Sale Price ($)") +
+  theme_minimal()
+```
+
+    ## Warning: Removed 447 rows containing non-finite outside the scale range
+    ## (`stat_smooth()`).
+
+    ## Warning: Removed 447 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->

@@ -137,3 +137,53 @@ ggplot(ames, aes(x = `Acres`, y = `Sale Price`)) +
     ## (`geom_point()`).
 
 ![](README_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
+
+Dan’s work: Variable picked = TotalLivingArea
+
+The variable TotalLivingArea ranges from 0 to about 6000 square feet.
+Most homes are between 1000 and 2500 square feet, so the data is skewed
+toward smaller homes.
+
+The histogram shows that many houses fall in the middle range, while
+only a few are very large.
+
+The scatterplot of Sale Price vs TotalLivingArea (zoomed to \$1M) shows
+a clear trend: homes with more living space usually sell for more money.
+Still, there are some odd points. A few small houses sold for very high
+prices, which may be because of their location or special features. On
+the other hand, some very large homes sold for low prices, which could
+be data issues or unusual cases. Overall, the main pattern is that
+bigger homes tend to cost more.
+
+``` r
+library(ggplot2)
+
+#Histogram of TotalLivingArea
+ggplot(ames, aes(x = `TotalLivingArea (sf)`)) +
+  geom_histogram(bins = 50, fill = "skyblue", color = "black") +
+  labs(title = "Distribution of Total Living Area",
+       x = "Total Living Area (sq ft)",
+       y = "Count") +
+  theme_minimal()
+```
+
+    ## Warning: Removed 447 rows containing non-finite outside the scale range
+    ## (`stat_bin()`).
+
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+``` r
+#Scatter: Sale Price vs TotalLivingArea (Zoomed in)
+ggplot(ames, aes(x = `TotalLivingArea (sf)`, y = `Sale Price`)) +
+  geom_point(alpha = 0.4) +
+  coord_cartesian(ylim = c(0, 1000000)) +   # just zoom view
+  labs(title = "Sale Price vs Total Living Area (zoomed in)",
+       x = "Total Living Area (sq ft)",
+       y = "Sale Price ($)") +
+  theme_minimal()
+```
+
+    ## Warning: Removed 447 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->

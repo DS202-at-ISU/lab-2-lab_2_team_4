@@ -94,3 +94,20 @@ ggplot(ames, aes(x = `TotalLivingArea (sf)`, y = `Sale Price`)) +
   theme_minimal()
 
 ```
+
+Arina's work: Variable picked = YearBuilt
+
+The variable YearBuilt ranges from the late 1800s to recent years, with most homes built in the mid-to-late 1900s. The scatterplot shows that newer homes generally sell for higher prices, while older homes tend to sell for less. Outliers, such as very old houses with high prices or newer houses with low prices, suggest that factors beyond age also influence sale price.
+
+```{r, message = FALSE}
+ggplot(ames_clean, aes(x = `YearBuilt`, y = `Sale Price`)) +
+  geom_point(alpha = 0.4) +
+  geom_smooth(method = "lm", color = "blue") +
+  labs(title = "Sale Price vs. Year Built",
+       x = "Year Built",
+       y = "Sale Price")
+
+```
+
+
+
